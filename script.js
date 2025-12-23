@@ -1,18 +1,11 @@
 document.getElementById("hireBtn").addEventListener("click", function () {
-    const messages = [
-        "I am passionate, disciplined, and constantly improving my skills.",
-        "I enjoy learning new technologies and working on real-world projects.",
-        "Ready to bring value to your team with a problem-solving mindset!"
-    ];
-    
-    alert(messages.join("\n\n"));
+    alert(
+        "Why Hire Me?\n\n" +
+        "1. I am passionate, disciplined, and constantly improving.\n" +
+        "2. I enjoy solving real-world problems with modern tech.\n" +
+        "3. I am a dedicated Computer Science student ready to contribute."
+    );
 });
 
-// Smooth scroll for navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const section = document.querySelector(this.getAttribute('href'));
-        section.scrollIntoView({ behavior: 'smooth' });
-    });
-});
+// Log confirmation for debugging
+console.log("Portfolio script loaded successfully.");
