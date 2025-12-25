@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anuoluwapo Olukayode | Professional Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="top">
 
-    <nav>
+    <nav id="main-nav">
         <div class="container nav-flex">
             <h2 class="logo">AO<span>.</span></h2>
-            <ul class="nav-links">
+            
+            <div class="menu-toggle" id="mobile-menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -28,14 +33,16 @@
             <div class="slide" style="background-image: url('code3.jpg');"></div>
             <div class="slide" style="background-image: url('code4.jpg');"></div>
         </div>
+        <div class="hero-overlay"></div>
         
         <div class="container hero-content">
-            <span class="eyebrow">Computer Science Professional</span>
-            <h1>Anuoluwapo Olukayode</h1>
-            <p>Developing scalable solutions through clean code and efficient architecture.</p>
-            <div class="cta-group">
-                <button id="hireBtn" class="btn-main">Executive Summary</button>
-                <a href="https://github.com/anuoluwa1234" target="_blank" class="btn-sub">Technical Portfolio</a>
+            <div class="hero-text-box">
+                <h1>Anuoluwapo Olukayode</h1>
+                <p>Computer Science Student | Aspiring Software Developer</p>
+                <div class="cta-group">
+                    <button id="hireBtn" class="btn-main">Executive Summary</button>
+                    <a href="https://github.com/anuoluwa1234" target="_blank" class="btn-sub">View GitHub</a>
+                </div>
             </div>
         </div>
     </header>
@@ -43,83 +50,47 @@
     <main class="container">
         <section id="about" class="section">
             <div class="section-header">
-                <h2>Professional Profile</h2>
+                <h2>About Me</h2>
                 <div class="line"></div>
             </div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        I am a dedicated Computer Science student focusing on building scalable software and 
-                        efficient web applications. My approach combines technical problem-solving with a 
-                        commitment to continuous learning in the ever-evolving field of technology.
-                    </p>
-                </div>
-                <div class="skills-box">
-                    <h3>Technical Proficiency</h3>
-                    <div class="skills-container">
-                        <span class="badge">HTML5 & CSS3</span>
-                        <span class="badge">JavaScript (ES6+)</span>
-                        <span class="badge">Python</span>
-                        <span class="badge">C# / .NET</span>
-                        <span class="badge">Git & CI/CD</span>
-                        <span class="badge">Technical Writing</span>
-                    </div>
-                </div>
+            <div class="card">
+                <p>
+                    I am a dedicated Computer Science student focusing on building scalable software and 
+                    efficient web applications. My approach combines technical problem-solving with a 
+                    commitment to continuous learning in the ever-evolving field of technology.
+                </p>
             </div>
         </section>
 
-        <section id="experience" class="section">
+        <section id="skills" class="section">
             <div class="section-header">
-                <h2>Experience & Education</h2>
+                <h2>Technical Proficiency</h2>
                 <div class="line"></div>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2023 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Computer Science Student</h3>
-                        <p>Focusing on Data Structures, Algorithms, and Software Engineering principles (SEN-313).</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>Open Source Contributor</h3>
-                        <p>Actively maintaining repositories and collaborating on version-controlled projects via GitHub.</p>
-                    </div>
-                </div>
+            <div class="skills-grid">
+                <div class="skill-tag">HTML5 & CSS3</div>
+                <div class="skill-tag">JavaScript (ES6+)</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">C# / .NET</div>
+                <div class="skill-tag">Git & Version Control</div>
+                <div class="skill-tag">Technical Writing</div>
             </div>
-        </section>
-
-        <section id="projects" class="section">
-            <div class="section-header">
-                <h2>Selected Projects</h2>
-                <div class="line"></div>
-            </div>
-            <div class="project-grid">
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3>SEN-313 Assignment</h3>
-                        <p>A comprehensive web development project showcasing modern CSS and JavaScript integration.</p>
-                        <a href="https://github.com/anuoluwa1234/SEN-313-ASSIGNMENT" class="text-link">View Repository →</a>
-                    </div>
-                </div>
-                </div>
         </section>
 
         <section id="contact" class="section">
-            <div class="contact-card">
-                <h2>Get In Touch</h2>
-                <p>Available for freelance opportunities and collaborative software development projects.</p>
-                <div class="contact-details">
-                    <p><strong>Email:</strong> <a href="mailto:olukayodeanuoluwapo19@gmail.com">olukayodeanuoluwapo19@gmail.com</a></p>
-                </div>
+            <div class="section-header">
+                <h2>Contact Information</h2>
+                <div class="line"></div>
+            </div>
+            <div class="card contact-card">
+                <p><strong>Email:</strong> <a href="mailto:olukayodeanuoluwapo19@gmail.com">olukayodeanuoluwapo19@gmail.com</a></p>
+                <p><strong>Assignment Repo:</strong> <a href="https://github.com/anuoluwa1234/SEN-313-ASSIGNMENT" target="_blank">View on GitHub</a></p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Anuoluwapo Olukayode | Professional Portfolio</p>
+        <p>&copy; 2025 Anuoluwapo Olukayode | SEN-313 Assignment</p>
     </footer>
 
     <script src="script.js"></script>
