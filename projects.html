@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack | Anuoluwapo</title>
+    <style>
+        body { font-family: "Times New Roman", Times, serif; font-size: 12pt; background-color: #010409; color: #c9d1d9; margin: 0; overflow-x: hidden; }
+        #slideshow-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+        .slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .slide.active { opacity: 0.25; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 20%, #010409 90%); z-index: -1; }
+        nav { background: rgba(13, 17, 23, 0.7); padding: 1.5rem; display: flex; justify-content: center; border-bottom: 1px solid #30363d; backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
+        nav a { color: #8b949e; text-decoration: none; margin: 0 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        nav a:hover { color: #58a6ff; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; position: relative; z-index: 1; }
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .matrix-card { background: rgba(13, 17, 23, 0.85); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; position: relative; transition: 0.3s; }
+        .matrix-card:hover { border-color: #58a6ff; transform: translateY(-5px); }
+        .matrix-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #58a6ff; }
+        h2 { color: #fff; margin-bottom: 40px; text-align: center; }
+        h3 { color: #58a6ff; margin-top: 0; }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tag { background: rgba(255, 255, 255, 0.05); padding: 4px 12px; border-radius: 4px; font-size: 10pt; border: 1px solid rgba(255,255,255,0.1); }
+
+        @media (max-width: 768px) {
+            nav a { margin: 5px 10px; font-size: 10pt; }
+            .matrix-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="slideshow-container"></div>
+    <div class="overlay"></div>
+    <nav>
+        <a href="index.html">/Home</a>
+        <a href="about.html">/About</a>
+        <a href="projects.html">/Stack</a>
+        <a href="contact.html">/Connect</a>
+    </nav>
+    <div class="container">
+        <h2>Technical Architecture</h2>
+        <div class="matrix-grid">
+            <div class="matrix-card">
+                <h3>Frontend Engineering</h3>
+                <p>Architecting user interfaces with a focus on performance and accessibility.</p>
+                <div class="tag-cloud"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">React</span></div>
+            </div>
+            <div class="matrix-card">
+                <h3>Backend Systems</h3>
+                <p>Building secure RESTful APIs and managing complex server-side logic.</p>
+                <div class="tag-cloud"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Python</span><span class="tag">Auth0</span></div>
+            </div>
+            <div class="matrix-card">
+                <h3>Database Design</h3>
+                <p>Optimizing data persistence and relational schema structures.</p>
+                <div class="tag-cloud"><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const images = ['code1.jpg', 'code2.jpg', 'code3.jpg', 'code4.jpg'];
+        const container = document.getElementById('slideshow-container');
+        images.forEach((url, index) => {
+            const div = document.createElement('div');
+            div.className = 'slide' + (index === 0 ? ' active' : '');
+            div.style.backgroundImage = `url('${url}')`;
+            container.appendChild(div);
+        });
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+    </script>
+</body>
+</html>

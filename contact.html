@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | Anuoluwapo</title>
+    <style>
+        body { font-family: "Times New Roman", Times, serif; font-size: 12pt; background: #010409; color: #c9d1d9; margin: 0; overflow-x: hidden; }
+        #slideshow-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+        .slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .slide.active { opacity: 0.25; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 20%, #010409 90%); z-index: -1; }
+        nav { background: rgba(13, 17, 23, 0.7); padding: 1.5rem; display: flex; justify-content: center; border-bottom: 1px solid #30363d; backdrop-filter: blur(10px); flex-wrap: wrap; }
+        nav a { color: #8b949e; text-decoration: none; margin: 0 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        nav a:hover { color: #58a6ff; }
+        .wrapper { display: flex; justify-content: center; align-items: center; min-height: 80vh; position: relative; z-index: 1; padding: 20px; }
+        .contact-glass { background: rgba(22, 27, 34, 0.85); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 60px; text-align: center; max-width: 500px; width: 100%; backdrop-filter: blur(20px); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+        .btn-group { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        .email-btn { background: #fff; color: #010409; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .github-btn { background: #333; color: #fff; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: 0.3s; border: 1px solid #555; }
+        .email-btn:hover { background: #58a6ff; color: #fff; }
+        .github-btn:hover { background: #444; border-color: #58a6ff; }
+        .copy-text { margin-top: 20px; color: #8b949e; cursor: pointer; padding: 10px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 8px; font-size: 10pt; word-break: break-all; }
+
+        @media (max-width: 768px) {
+            nav a { margin: 5px 10px; font-size: 10pt; }
+            .contact-glass { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="slideshow-container"></div>
+    <div class="overlay"></div>
+    <nav>
+        <a href="index.html">/Home</a>
+        <a href="about.html">/About</a>
+        <a href="projects.html">/Stack</a>
+        <a href="contact.html">/Connect</a>
+    </nav>
+    <div class="wrapper">
+        <div class="contact-glass">
+            <h2 style="color: #fff;">Let's Collaborate</h2>
+            <p>Ready for full-stack opportunities and software engineering research.</p>
+            <div class="btn-group">
+                <a href="mailto:olukayodeanuoluwapo19@gmail.com" class="email-btn">Email Me</a>
+                <a href="https://github.com/anuoluwa1234" target="_blank" class="github-btn">GitHub Profile</a>
+            </div>
+            <div class="copy-text" id="copyEmail">olukayodeanuoluwapo19@gmail.com</div>
+        </div>
+    </div>
+    <script>
+        const images = ['code1.jpg', 'code2.jpg', 'code3.jpg', 'code4.jpg'];
+        const container = document.getElementById('slideshow-container');
+        images.forEach((url, index) => {
+            const div = document.createElement('div');
+            div.className = 'slide' + (index === 0 ? ' active' : '');
+            div.style.backgroundImage = `url('${url}')`;
+            container.appendChild(div);
+        });
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+        document.getElementById('copyEmail').addEventListener('click', function() {
+            navigator.clipboard.writeText(this.innerText);
+            alert('Email copied to clipboard!');
+        });
+    </script>
+</body>
+</html>

@@ -3,96 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuoluwapo Olukayode | Professional Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Anuoluwapo | Full Stack Engineer</title>
+    <style>
+        :root {
+            --primary: #58a6ff;
+            --accent: #7ee787;
+            --bg: #010409;
+            --card-bg: rgba(13, 17, 23, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: "Times New Roman", Times, serif; font-size: 12pt;
+            background-color: var(--bg); color: #c9d1d9; overflow-x: hidden;
+        }
+
+        #slideshow-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+        }
+
+        .slide {
+            position: absolute; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0; transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active { opacity: 0.4; }
+
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, transparent 20%, var(--bg) 90%);
+            z-index: 1;
+        }
+
+        nav {
+            backdrop-filter: blur(10px); background: rgba(1, 4, 9, 0.8);
+            padding: 1.5rem; display: flex; justify-content: center;
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #8b949e; text-decoration: none; margin: 0 20px;
+            font-weight: bold; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        .hero {
+            min-height: 85vh; display: flex; justify-content: center; align-items: center; padding: 20px;
+            position: relative; z-index: 10;
+        }
+
+        .glass-card {
+            background: var(--card-bg); backdrop-filter: blur(15px);
+            border: 1px solid var(--border); border-radius: 20px;
+            padding: 60px; max-width: 750px; text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            width: 100%;
+        }
+
+        .badge { border: 1px solid var(--primary); color: var(--primary); padding: 4px 12px; border-radius: 50px; font-size: 10pt; }
+
+        h1 { font-size: 3.2rem; color: #fff; margin: 25px 0 10px 0; line-height: 1.1; }
+        
+        .typewriter { font-family: 'Courier New', monospace; color: var(--accent); font-size: 1.3rem; margin-bottom: 30px; min-height: 1.5em; }
+
+        .stats { display: flex; justify-content: space-around; border-top: 1px solid var(--border); padding-top: 30px; }
+
+        .stat-box h3 { color: var(--primary); margin: 0; font-size: 1.5rem; }
+        .stat-box p { margin: 5px 0 0 0; font-size: 10pt; color: #8b949e; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            nav { padding: 1rem; }
+            nav a { margin: 5px 10px; font-size: 10pt; }
+            h1 { font-size: 2rem; }
+            .glass-card { padding: 30px 20px; }
+            .typewriter { font-size: 1rem; }
+            .stats { flex-direction: column; gap: 20px; }
+        }
+
+        footer { text-align: center; padding: 30px; background: var(--bg); color: #484f58; font-size: 10pt; position: relative; z-index: 10; }
+    </style>
 </head>
-<body id="top">
+<body>
+    <div id="slideshow-container"></div>
+    <div class="overlay"></div>
 
-    <nav id="main-nav">
-        <div class="container nav-flex">
-            <h2 class="logo">AO<span>.</span></h2>
-            
-            <div class="menu-toggle" id="mobile-menu-btn">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
-            <ul class="nav-links" id="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+    <nav>
+        <a href="index.html">/Home</a>
+        <a href="about.html">/About</a>
+        <a href="projects.html">/Stack</a>
+        <a href="contact.html">/Connect</a>
     </nav>
 
-    <header class="hero">
-        <div class="slideshow">
-            <div class="slide" style="background-image: url('code1.jpg');"></div>
-            <div class="slide" style="background-image: url('code2.jpg');"></div>
-            <div class="slide" style="background-image: url('code3.jpg');"></div>
-            <div class="slide" style="background-image: url('code4.jpg');"></div>
-        </div>
-        <div class="hero-overlay"></div>
-        
-        <div class="container hero-content">
-            <div class="hero-text-box">
-                <h1>Anuoluwapo Olukayode</h1>
-                <p>Computer Science Student | Aspiring Software Developer</p>
-                <div class="cta-group">
-                    <button id="hireBtn" class="btn-main">Executive Summary</button>
-                    <a href="https://github.com/anuoluwa1234" target="_blank" class="btn-sub">View GitHub</a>
-                </div>
+    <section class="hero">
+        <div class="glass-card">
+            <span class="badge">Computer Science • Full Stack</span>
+            <h1>Olukayode Anuoluwapo</h1>
+            <div class="typewriter" id="typewriter"></div>
+            <div class="stats">
+                <div class="stat-box"><h3>SEN-313</h3><p>COURSE CODE</p></div>
+                <div class="stat-box"><h3>2025</h3><p>YEAR</p></div>
+                <div class="stat-box"><h3>LIVE</h3><p>STATUS</p></div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main class="container">
-        <section id="about" class="section">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <div class="line"></div>
-            </div>
-            <div class="card">
-                <p>
-                    I am a dedicated Computer Science student focusing on building scalable software and 
-                    efficient web applications. My approach combines technical problem-solving with a 
-                    commitment to continuous learning in the ever-evolving field of technology.
-                </p>
-            </div>
-        </section>
+    <footer>BU23CSC1067 • Full Stack Architecture &copy; 2025</footer>
 
-        <section id="skills" class="section">
-            <div class="section-header">
-                <h2>Technical Proficiency</h2>
-                <div class="line"></div>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-tag">HTML5 & CSS3</div>
-                <div class="skill-tag">JavaScript (ES6+)</div>
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">C# / .NET</div>
-                <div class="skill-tag">Git & Version Control</div>
-                <div class="skill-tag">Technical Writing</div>
-            </div>
-        </section>
+    <script>
+        const images = ['code1.jpg', 'code2.jpg', 'code3.jpg', 'code4.jpg'];
+        const container = document.getElementById('slideshow-container');
 
-        <section id="contact" class="section">
-            <div class="section-header">
-                <h2>Contact Information</h2>
-                <div class="line"></div>
-            </div>
-            <div class="card contact-card">
-                <p><strong>Email:</strong> <a href="mailto:olukayodeanuoluwapo19@gmail.com">olukayodeanuoluwapo19@gmail.com</a></p>
-                <p><strong>Assignment Repo:</strong> <a href="https://github.com/anuoluwa1234/SEN-313-ASSIGNMENT" target="_blank">View on GitHub</a></p>
-            </div>
-        </section>
-    </main>
+        images.forEach((url, index) => {
+            const div = document.createElement('div');
+            div.className = 'slide' + (index === 0 ? ' active' : '');
+            div.style.backgroundImage = `url('${url}')`;
+            container.appendChild(div);
+        });
 
-    <footer>
-        <p>&copy; 2025 Anuoluwapo Olukayode | SEN-313 Assignment</p>
-    </footer>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        setInterval(() => {
+            if(slides.length > 0) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+        }, 5000);
 
-    <script src="script.js"></script>
+        const text = "Architecting scalable digital solutions...";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++; setTimeout(typeWriter, 70);
+            }
+        }
+        window.onload = typeWriter;
+    </script>
 </body>
 </html>

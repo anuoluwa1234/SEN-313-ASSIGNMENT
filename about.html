@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Anuoluwapo</title>
+    <style>
+        :root {
+            --primary: #58a6ff;
+            --bg: #010409;
+            --card-bg: rgba(13, 17, 23, 0.85);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body { font-family: "Times New Roman", Times, serif; font-size: 12pt; background: var(--bg); color: #c9d1d9; margin: 0; overflow-x: hidden; }
+
+        #slideshow-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; }
+        .slide { position: absolute; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .slide.active { opacity: 0.25; }
+
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 20%, #010409 90%); z-index: -1; }
+
+        nav { background: rgba(1, 4, 9, 0.8); padding: 1.5rem; display: flex; justify-content: center; border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; flex-wrap: wrap; }
+        nav a { color: #8b949e; text-decoration: none; margin: 0 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+        nav a:hover { color: var(--primary); }
+
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; position: relative; z-index: 1; }
+        
+        .about-glass {
+            background: var(--card-bg); backdrop-filter: blur(15px); border: 1px solid var(--border);
+            border-radius: 20px; padding: 50px; line-height: 1.8; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        h2 { color: #fff; border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 10px; margin-bottom: 30px; }
+        .highlight { color: var(--primary); font-weight: bold; }
+
+        @media (max-width: 768px) {
+            nav a { margin: 5px 10px; font-size: 10pt; }
+            .about-glass { padding: 30px 20px; }
+            .container { margin: 20px auto; }
+        }
+    </style>
+</head>
+<body>
+    <div id="slideshow-container"></div>
+    <div class="overlay"></div>
+
+    <nav>
+        <a href="index.html">/Home</a>
+        <a href="about.html">/About</a>
+        <a href="projects.html">/Stack</a>
+        <a href="contact.html">/Connect</a>
+    </nav>
+
+    <div class="container">
+        <div class="about-glass">
+            <h2>About Me</h2>
+            <p>I am <span class="highlight">Olukayode Anuoluwapo</span>, a dedicated Computer Science student and aspiring Full Stack Engineer with a passion for building robust, scalable digital infrastructures.</p>
+            <p>My journey in software engineering is driven by a deep interest in how complex systems interact—from the intricate logic of the backend to the intuitive design of the frontend. I specialize in the <span class="highlight">MERN stack</span> (MongoDB, Express, React, Node.js) but am constantly exploring new technologies like Python and PostgreSQL to broaden my architectural toolkit.</p>
+            <p>Currently, I am focusing on <span class="highlight">SEN-313</span> course modules, applying theoretical computer science principles to real-world software development challenges. I believe that clean code and well-documented systems are the foundation of any successful technological solution.</p>
+        </div>
+    </div>
+
+    <script>
+        const images = ['code1.jpg', 'code2.jpg', 'code3.jpg', 'code4.jpg'];
+        const container = document.getElementById('slideshow-container');
+        images.forEach((url, index) => {
+            const div = document.createElement('div');
+            div.className = 'slide' + (index === 0 ? ' active' : '');
+            div.style.backgroundImage = `url('${url}')`;
+            container.appendChild(div);
+        });
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000);
+    </script>
+</body>
+</html>
